@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "pokemon-app": "apps/pokemon-app",
+    "pokemon-app-e2e": "apps/pokemon-app-e2e"
+  }
+}

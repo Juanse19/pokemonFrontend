@@ -1,0 +1,94 @@
+{
+  "projectType": "application",
+  "root": "apps/pokemon-app",
+  "sourceRoot": "apps/pokemon-app/src",
+  "prefix": "pokemon-front",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/pokemon-app",
+        "index": "apps/pokemon-app/src/index.html",
+        "main": "apps/pokemon-app/src/main.ts",
+        "polyfills": "apps/pokemon-app/src/polyfills.ts",
+        "tsConfig": "apps/pokemon-app/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/pokemon-app/src/favicon.ico",
+          "apps/pokemon-app/src/assets"
+        ],
+        "styles": ["apps/pokemon-app/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/pokemon-app/src/environments/environment.ts",
+              "with": "apps/pokemon-app/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "pokemon-app:build:production"
+        },
+        "development": {
+          "browserTarget": "pokemon-app:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "pokemon-app:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/pokemon-app/**/*.ts",
+          "apps/pokemon-app/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/pokemon-app"],
+      "options": {
+        "jestConfig": "apps/pokemon-app/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
