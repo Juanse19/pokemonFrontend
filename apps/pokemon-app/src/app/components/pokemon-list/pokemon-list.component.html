@@ -1,0 +1,28 @@
+<mat-card class="count-container">
+
+
+</mat-card>
+<mat-grid-list cols="4" rowHeight="500">
+  <mat-grid-tile *ngFor="let each of pokemons">
+
+    <mat-card  defaultOpacVal="0.8">
+      <mat-card-header>
+        <img mat-card-avatar [src]="each.image">
+        <mat-card-title>{{each.name | uppercase}}</mat-card-title>
+        <mat-card-subtitle>{{each.pokedex}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="each.image" [alt]="each.name">
+      <mat-card-content>
+      </mat-card-content>
+      <mat-card-actions>
+
+        <button mat-raised-button style="margin-left: 8px;" color="accent" routerLink="detail/{{each._id}}">Details</button>
+
+        <button mat-fab color="primary" style="margin-left: 28px;" (click)="deletePokemon(each)" aria-label="Example icon button with a delete icon">
+          <mat-icon>delete</mat-icon>
+        </button>
+
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

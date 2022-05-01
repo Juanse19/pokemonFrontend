@@ -1,0 +1,16 @@
+.mat-card-image {
+  height: 250px;
+  width: 320px;
+}
+.count-container {
+  text-align: center;
+  .success-msg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .count {
+      font-size: 2em;
+      padding: 0 5px;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+
+<div class="container">
+
+<div *ngIf="pokemon">
+
+  <h2>{{ pokemon.name | uppercase }} Details</h2>
+  <img [src]="pokemon.image">
+  <!-- <div>
+    <span>id: </span>{{pokemon._id}}</div>
+  <div> -->
+
+  <form #pokemonForm="ngForm" (ngSubmit)="updatePokemon()">
+    <p>
+    <mat-form-field appearance="outline">
+      <input type="text" #name matInput placeholder="name" required [(ngModel)]="pokemon.name" name="name">
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field appearance="outline">
+      <input type="text" matInput placeholder="evolves from" [(ngModel)]="pokemon.evolves_from" name="evolves_from">
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field appearance="outline">
+      <input type="text" matInput placeholder="image url" [(ngModel)]="pokemon.image" name="image">
+    </mat-form-field>
+  </p>
+
+    <button type="submit" mat-raised-button color="primary" routerLink="/">Back</button>
+    <button type="submit" mat-raised-button color="primary" style="margin-left: 8px;" >Update</button>
+
+    <!-- <button type="button" mat-raised-button color="primary" (click)="resetData(); pokemonForm.reset()">Reset</button> -->
+  </form>
+
+</div>
+</div>
+
+

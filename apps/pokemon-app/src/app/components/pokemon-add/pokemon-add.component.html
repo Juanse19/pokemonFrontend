@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>Add Pokemon</h1>
+<div mat-dialog-content>
+
+  <form [formGroup]="PokemonForm" (click)="addPokemon()">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input formControlName="name" matInput placeholder="Name pokemon" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>evolves_from</mat-label>
+      <input formControlName="evolves_from" matInput placeholder="evolves_from" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>image</mat-label>
+      <input formControlName="image" matInput placeholder="image">
+    </mat-form-field>
+
+    <div mat-dialog-actions [align]="'end'">
+      <button mat-raised-button color=""warn mat-dialog-close>Close</button>
+      <button style="margin-left: 8px;" mat-raised-button color="primary" >Save</button>
+    </div>
+
+  </form>
+
+
+
+</div>
